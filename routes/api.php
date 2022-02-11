@@ -18,4 +18,14 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('posts', 'Api\ApiPostController@apiIndex');
+// Route::get('posts', 'Api\ApiPostController@apiIndex');
+// Route::get('posts/{slug}', 'Api\ApiPostController@show');
+
+Route::namespace('Api')
+  ->prefix('posts')
+  ->group(function(){
+
+    Route::get('/', 'ApiPostController@apiIndex');
+    Route::get('{slug}', 'ApiPostController@show');
+
+  });

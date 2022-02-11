@@ -10,6 +10,7 @@ import About from './components/pages/About';
 import Contacts from './components/pages/Contacts';
 import PostPage from './components/pages/PostPage';
 import PostDetails from './components/pages/PostDetails';
+import Error from './components/pages/Error';
 
 const router = new VueRouter({
   mode: 'history',
@@ -41,6 +42,11 @@ const router = new VueRouter({
       path: '/detail/:slug',
       name: 'detail',
       component: PostDetails,
+    },
+    {
+      path: '*',
+      name: 'error',
+      component: Error,
     },
   ]
 

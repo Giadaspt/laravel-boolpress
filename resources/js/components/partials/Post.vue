@@ -1,7 +1,9 @@
 <template>
   <section class="singlePostSection">
     <div class="singlePost">
-      <h4> {{postSingle.title}} </h4>
+      <h4> 
+        <router-link :to="{ name: 'detail', params:{slug: postSingle.slug}}"> {{postSingle.title}} </router-link>
+      </h4>
       <p
         v-if="postSingle.category" >
         {{ postSingle.category.name }}

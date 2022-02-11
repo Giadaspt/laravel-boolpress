@@ -23,5 +23,7 @@ export default {
 
 <style scoped lang="scss">
 
-
+   .container {
+    margin: 58px auto;
+  }
 </style>

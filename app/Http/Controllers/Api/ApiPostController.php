@@ -13,4 +13,17 @@ class ApiPostController extends Controller
 
         return response()->json($posts); 
     }
+
+    public function show($slug){
+        $post = Post::where('slug', $slug)->with(['category', 'tags'])->first();
+        
+        if(!$post){
+            $post = [
+                'title' => 'Nessuna pagina trovata',
+                'content' => ''
+            ];
+        }
+
+        return response()->json($post);
+    }
 }
