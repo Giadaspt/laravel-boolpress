@@ -3,16 +3,16 @@
     <nav class="container">
       <ul>
         <li>
-          <a class="active" href="#"> Menu </a>
+          <router-link :to="{ name: 'home' }"> Home </router-link>
         </li>
         <li>
-          <a href="#"> Chi Siamo </a>
+          <router-link :to="{ name: 'posts' }"> I Post </router-link>
         </li>
         <li>
-          <a href="#"> About </a>
+          <router-link :to="{ name: 'about' }"> About </router-link>
         </li>
         <li>
-          <a href="#"> Contatti </a>
+          <router-link :to="{ name: 'contacts' }"> Contatti </router-link>
         </li>
       </ul>
     </nav>

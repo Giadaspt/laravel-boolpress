@@ -37346,9 +37346,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-api\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-api\resources\sass\admin\app.scss */"./resources/sass/admin/app.scss");
-module.exports = __webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-api\resources\sass\guest\style.scss */"./resources/sass/guest/style.scss");
+__webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-boolpress\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-boolpress\resources\sass\admin\app.scss */"./resources/sass/admin/app.scss");
+module.exports = __webpack_require__(/*! C:\Users\Giada\Documents\ESERCIZ-BOOLEAN-44\LARAVEL\laravel-boolpress\resources\sass\guest\style.scss */"./resources/sass/guest/style.scss");
 
 
 /***/ })

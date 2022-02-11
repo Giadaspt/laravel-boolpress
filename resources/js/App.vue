@@ -3,7 +3,7 @@
 
   <Header/>
 
-  <PostPage />
+  <router-view></router-view>
 
   <Footer/>
 
@@ -14,7 +14,6 @@
 <script>
 import Header from './components/partials/Header';
 import Footer from './components/partials/Footer';
-import PostPage from './components/PostPage';
 
 
 export default {
@@ -23,7 +22,6 @@ export default {
   components: {
     Header,
     Footer,
-    PostPage,
   }
 }
 </script>

@@ -8,8 +8,8 @@
       </p>
       <div>
         <span
-        v-for="tag in postSingle.tags"
-        :key="`${tag.id}`">
+        v-for="(tag, index) in postSingle.tags"
+        :key="`tag${index}`">
         {{tag.name}}
         </span>
       </div>

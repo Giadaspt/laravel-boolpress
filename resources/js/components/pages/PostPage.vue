@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import Post from './partials/Post';
+import Post from '../partials/Post';
 
 export default {
   name: "PostPage",
