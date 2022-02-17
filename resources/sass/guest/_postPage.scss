@@ -1,10 +1,13 @@
+main {
+  padding-bottom: 58px;
+}
+
 .allPosts {
-  width: 60%;
+  display: flex;
+  width: 50%;
   margin: 34px auto;
-
-
   
-  button {
+  .btn_page {
     font-size: 14px;
     background-color: rgba(255, 127, 80, 0.705);
     padding: 4px;

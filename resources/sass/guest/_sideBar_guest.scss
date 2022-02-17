@@ -1,0 +1,23 @@
+.boxCategory, .boxTag {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 24px;
+  margin-left: 32px;
+  margin-bottom: 32px;
+}
+
+.cat, .tag {
+  color: white;
+  text-align: center;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 6px;
+}
+
+.cat {
+  background-color: darkgreen;
+}
+
+.tag {
+  background-color:darkcyan;
+}
