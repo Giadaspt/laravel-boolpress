@@ -23,6 +23,10 @@
           </button>
         </div>
       </div>
+
+       <button class="btnAll" @click="$emit('getAllPosts')">
+      Tutti i post
+      </button>
     </div>
 </template>
 
@@ -38,5 +42,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+  .btnAll {
+    margin-left: 32px;
+    padding: 6px;
+    background-color: rgb(255, 157, 0);
+  }
 </style>

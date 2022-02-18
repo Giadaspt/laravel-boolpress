@@ -1,9 +1,9 @@
 <template>
   <main class="allPosts">
 
-    <section>
+    <section >
       <h2>
-        Tutti i post
+        {{titlePosts}}
       </h2>
       <div v-if="posts">
         <Post
@@ -11,28 +11,30 @@
           :key="`${post.id}`"
           :postSingle="post"
         />
-        <button
-          class="btn_page"
-          @click="getPosts(paginate.current - 1) "
-          :disabled = "paginate.current === 1">
-        &#60;
-        </button>
+        <div v-if="allPosts">
+          <button
+            class="btn_page"
+            @click="getPosts(paginate.current - 1) "
+            :disabled = "paginate.current === 1">
+          &#60;
+          </button>
 
-        <button
-          class="btn_page"
-          v-for="page in paginate.last"
-          :key="page.id"
-          @click="getPosts(page)"
-          :disabled = "paginate.current === page"> 
-          {{page}}
-        </button>
+          <button
+            class="btn_page"
+            v-for="page in paginate.last"
+            :key="page.id"
+            @click="getPosts(page)"
+            :disabled = "paginate.current === page"> 
+            {{page}}
+          </button>
 
-        <button
-          class="btn_page"
-          @click="getPosts(paginate.current + 1)"
-          :disabled = "paginate.current === paginate.last">
-        &#62;
-        </button>
+          <button
+            class="btn_page"
+            @click="getPosts(paginate.current + 1)"
+            :disabled = "paginate.current === paginate.last">
+          &#62;
+          </button>
+        </div>
       </div>
       <div v-else>
         <h3> Caricamento... </h3>
@@ -40,21 +42,15 @@
 
 
     </section>
-      <!-- <section v-else>
-        <h3> {{error_msg}}</h3>
-      </section> -->
 
     <SideBar
       :tags="tags"
       :categories="categories"
       @getPotCategory="getCategory"
       @getTagPost=" getTag"
+      @getAllPosts="getPosts"
     />
-    <section>
-      <button @click="getPosts">
-      Tutti i post
-      </button>
-    </section>
+
   </main>
 </template>
 
@@ -80,6 +76,8 @@ export default {
       categories: [],
       success: true,
       error_msg: "",
+      titlePosts: "Tutti i post",
+      allPosts: true,
     }
   },
 
@@ -89,7 +87,7 @@ export default {
 
   methods: {
     getPosts(page=1){
-      this.posts = null;
+      this.reset();
 
       axios.get(this.apiUrl + "?page=" + page)
         .then(res => {
@@ -105,12 +103,13 @@ export default {
     },
 
     getCategory(slug_category){
-      this.success = true;
-      this.error_msg="";
+      this.reset();
 
       axios.get(this.apiUrl + "/postcategory/" + slug_category)
       .then(res =>{
         this.posts = res.data.category.posts;
+        this.titlePosts = 'I post per la categoria: ' + res.data.category.name;
+        this.allPosts= false;
 
         if(!res.data.succes){
           this.error_msg = res.data.error;
@@ -120,23 +119,34 @@ export default {
     },
 
     getTag(slug_tag){
-      this.success = true;
-      this.error_msg="";
+      this.reset();
 
       axios.get(this.apiUrl + "/posttag/" + slug_tag)
       .then(res =>{
         this.posts = res.data.tag.posts;
+        this.titlePosts = 'I post per il tag: ' + res.data.tag.name;
+        this.allPosts= false;
 
         if(!res.data.succes){
           this.error_msg = res.data.error;
           this.success = false;
         }
       });
+    },
+
+    reset(){
+      this.posts = null;
+      this.success = true;
+      this.error_msg = "";
+      this.titlePosts = 'Tutti i post';
+      this.allPosts = true;
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+  
 
 </style>
